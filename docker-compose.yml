@@ -1,0 +1,27 @@
+services:
+  backend:
+    build: .
+    container_name: todolist-backend
+    restart: always
+    expose:
+      - "4000"
+
+  frontend:
+    image: ghcr.io/wololobzh/todolist-frontend:latest
+    container_name: todolist-frontend
+    restart: always
+
+  nginx:
+    image: nginx:alpine
+    container_name: todolist-nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf.selfsigned:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/certs-selfsigned:/etc/nginx/ssl:ro
+      - ./nginx/www:/var/www/certbot:ro
+    depends_on:
+      - backend
+      - frontend

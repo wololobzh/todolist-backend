@@ -1,0 +1,56 @@
+# === Node.js / npm ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.yarn-integrity
+
+# === Build output ===
+dist/
+build/
+out/
+.tmp/
+.temp/
+.cache/
+
+# === Environment variables ===
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# === Logs ===
+logs/
+*.log
+*.log.*
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# === IDE & OS files ===
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# === Test coverage ===
+coverage/
+.nyc_output/
+
+# === Misc ===
+*.tgz
+*.swp
+*.swo
+
+# === Optional: TypeScript ===
+*.tsbuildinfo
+
+# === Optional: Next.js / React / Vite etc. ===
+.next/
+.vercel/
+.svelte-kit/
+vite.config.timestamp-*.mjs

@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    container_name: todolist-backend-dev
+    command: npm run dev
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: /mnt/host/c/Users/tommy/Documents/todolist-frontend
+    container_name: todolist-frontend-dev
+    working_dir: /app
+    command: npm run dev -- --host
+    volumes:
+      - /mnt/host/c/Users/tommy/Documents/todolist-frontend:/app
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+    depends_on:
+      - backend
